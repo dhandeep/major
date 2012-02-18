@@ -1,0 +1,319 @@
+\documentclass[12pt]{article}
+\usepackage{major2}
+\linespread{1}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{sectsty}
+
+\begin{document}
+
+\mprojtopic{Competitive Facility Location: Voronoi Games}
+
+\studentnameone{Akshay Jain}
+\rollnoone{B080582CS}
+%
+\studentnametwo{Ayush Sengupta}
+\rollnotwo{B080545CS}
+\studentnamethree{Anuj Tawari}
+\rollnothree{B080511CS}
+\studentnamefour{Dhandeep M Lodaya}
+\rollnofour{B080569CS}
+%
+\guidesname{Mr Vinod Pathari}
+\hodname{Dr.Priya Chandran}
+\makefrontpage
+\setcounter{page}{2}
+\setcounter{section}{0}
+\pagestyle{plain}
+\newpage
+
+
+\noindent {\Large \bf  ABSTRACT}\\\\\\*
+\large
+ \indent Competitive facility location deals with the placement of sites by competing
+market players. Geometric arguments are combined with arguments from game theory to see how the behavior of these decision makers affect each other. We will address a competitive facility location problem that we call the Voronoi Game. We also consider the discrete version of the Voronoi game which plays on a given graph instead on a continuous space(Voronoi game on graphs). At a later stage in our project we will also analyze service provider games.\\
+
+We will use Voronoi  games to model the behavior of selfish agents in internet.  
+This analysis may help us to create effective DDOS attacks that could effectively disrupt the target network without effecting the intermediate routers. And thus creating attacks that are multiple time stronger than an normal DDOS attack.
+\newpage
+\setcounter{tocdepth}{3}
+\sectionfont{\Large}
+\subsectionfont{\large}
+\subsubsectionfont{\large}
+
+\tableofcontents
+
+\newpage
+
+\\
+\section{Problem Definition}
+
+\indent \indent The classical facility location problem asks for the optimum location of a new facility (police station, super market, transmitter, etc.) with respect to a given set of customers. Typically, the function to be optimized is the maximum distance from customers to the facility which results in the minimum enclosing disk problem studied by Megiddo , Welzl and Aronov et al\cite{Aronov98facilitylocation}.\\\\
+\indent Competitive facility location deals with the placement of sites by competing market players. Geometric arguments are combined with arguments from game theory to see how the behavior of these decision makers affect each other. Competitive location models have been studied in many different fields, such as spatial economics and industrial organization, mathematics and operations research\cite{Ahn01competitivefacility}.\\
+
+\indent In our project we will be analyzing a special case of competitive facility location known as Voronoi games. Instead of constructing algorithms for facility location we would analyzing it using game theory.
+\\
+\newpage 
+
+
+\section{Introduction}\\
+
+\subsection{Background and Recent Research }
+
+\subsubsection{Voronoi Diagrams and Voronoi Games}\\
+
+\indent \indent The Voronoi Game is a simple geometric model for the competitive facility location. The geometric concepts are combined with game theory arguments to study if there exists any winning strategy. The Voronoi Game is a direct application of Voronoi Diagrams which are some kind of graphs embedded on the plane.\cite{Ahn03competitivefacility} To understand what's the Voronoi Diagram of a set of points (the latests in this context are called sites) in the plane we must think about the two sites scenario. In this case the Voronoi Diagram is represented by the bisector relative of the two sites on the plane. The bisector is the locus of points in the plane at equal distance from the two sites thereby it determinate two regions constituted by points that are at a closer distance to one of the sites than the other. This concept may be generalized for the case of \emph{n} sites in someway because the bisector concept continues to apply in a certain point of view. There will be always a region for every site containing the points that are closer to the respective site then to all the other sites. This distance propriety is used in the Voronoi game for modeling competitive players in a determined arena.\\\\
+\indent The Voronoi Game is played by two players, Blue and Red, who place a specified number, \emph{n}, of facilities in a region \emph{U}. They alternate placing their facilities one at a time, with Blue going first. After all \emph{2n} facilities have been placed, their decisions are evaluated by considering the Voronoi diagram of the \emph{2n} points. The player whose facilities control the larger area wins.\\
+
+More formally, let $\{b_i\}^n_{i=1}$ and $\{r_i\}^n_{i=1}$ be the respective locations of the blue and red points and set\\
+
+
+\begin{center}
+ $\emph{B} = \|\{u \in \emph{U} : \min_{i} d(u,b_i) < \min_{i} d(u,r_i) \}\|$,\\
+$\emph{R} = \|\{u \in \emph{U} : \min_{i} d(u,r_i) < \min_{i} d(u,b_i) \}\|$\\\\
+
+\end{center}
+where \enph{d(u,v)} is an underlying metric and $\| . \|$ indicates the area of a set. Blue wins iff $\emph{B}>\emph{R}$, Red wins iff $\emph{R}>\emph{B}$, else the game ends in a tie.\\
+\newpage
+\subsubsection{Voronoi Games in one dimension}\\
+\indent \indent Voronoi Games in one-dimension is basically played in a one-dimensional arena, like a circle or a line-segment. One might conjecture that due to symmetry none of the players actually have a winning strategy. Ahn et al. were the first to demonstrate that the second player (Red) always has a winning strategy both in the case of a circle and line segment (The player who occupies the largest ‘circumference’/’interval’ wins). They were able to define a strategy based on certain important points (keypoints), which must be occupied, and by utilizing the fact that Red moving second has a natural advantage because, at any stage, he can always place points such that he occupies a greater interval than Blue.
+They also prove that the margin by which Red wins is in fact very small and in fact Blue can make it arbitrarily small,$ \forall \epsilon > 0 \exists$ a strategy for blue, such that irrespective of Red’s strategy,  $\mid\mid\emph{R}\mid-\mid\emph{B}\mid \mid < \epsilon$ . They also prove that there is exists no strategy that can actually improve the margin of Red’s win. Thus, in all practical situations, the game basically ends in a tie.\\
+
+{\bf The Game on a Circle}
+\\
+
+Let there be two players, blue and red. Each of them alternate to place $n > 1$ points on a circle C, starting with blue. We assume that the points cannot lie upon each other. After all the points are placed, each player recieves a score equal to the total circumference of the circle that is closer to that player than to the other. The player with the highest score wins.\\
+
+In this game, it has been proved that red always has a winning strategy.  Before giving the strategy we introduce some definitions. 
+We parameterize the circle using the interval [0,1], where points 0 and 1 are identical. Let the n points $u_i= i/n, i=0,1, ... , n-1$ be called as the keypoints. We call an arc between two clockwise consecutive blue/red points an interval. An interval is monochromatic if its endpoints are the same colour, and bichromatic if they have different colours. An interval is called a key interval if both of its endpoints are keypoints.\\
+
+We denote the total length of all red intervals by $R_m$ and the total length of all the blue intervals by $B_m$. Since at the end of the game the length of each bichromatic interval is divided equally among the two players, red wins if and only if $R_m > B_m$.
+\newpage
+{\bf  \emph{Winning strategy for Red:}}\\
+\\
+\indent We can assume without loss of generality that Blue plays his first point on 0 and thus on a keypoint.\\
+\\
+\indent Red's intitial strategy is to occupy all the keypoints. Thus in the first phase Red plays onto any empty keypoint. This phase ends after the last keypoint is placed. Intuitively this strategy can be justified by noticing that the keypoints are just a set of essential points which gives the maximum profit(because occupying any two consecutive keypoints gives a large monochromatic interval). If there is no empty keypoint(and it is not Red's last move) then Red plays its point into the middle of the largest Blue interval. Making this move actually breaks the blue interval. For the last move if there exists more than one blue interval then Red breaks the largest one. If there is only one blue interval, then Red places a point in a bichromatic interval , such that the length of the resulting red interval is greater than the length of the blue interval. 
+\\
+
+We now prove how keypoint strategy is a well-defined winning strategy for red.
+\\
+
+To do this first we have to prove the following lemma.
+\\
+
+
+{ \bf Lemma 1:} The difference between the number of blue intervals and the number of red intervals is exactly equal to the difference between the number of blue points and the number of red points.\\
+	
+{ \bf Proof:} Let b be the number of blue points on the circle. Thus initially there are b blue intervals and no red interval. Now whenever we add a red point there are three different cases,\\
+
+{ \bf \emph{Case I}:} We add a red point in between two blue points. In this case we reduce the number of blue intervals by one and the number of red intervals do not change. Thus the difference between the number of blue intervals and red intervals decreases by one.
+\\
+
+{ \bf \emph{Case II}:} We add a red point in between two red points. In this case we increase the number of blue intervals by one and the number of red intervals remains unchanged. Thus the difference between the number of blue intervals and the number of red intervals decreases by one.
+\\
+
+{ \bf \emph{Case III}:} We add a red point in between two red points. In this case we increase the number of blue intervals by one and the number of red intervals remains unchanged. Thus the difference between the number of blue intervals and the number of red intervals decreases by one.
+\\
+
+Thus adding a always red point decreases the differnce between the number of blue intervals and the number of red intervals by one. We have hence proved the lemma. 
+\\
+
+To prove the theorem we first notice that the phase I of Red's strategy always ends before Red plays the last point. This is because the first point blue places is always a keypoint by default, Red can play into at most $n-1$ keypoints. 
+\\
+
+Now let k be the number of keypoints played by Blue during the game. At the end of phase two Red has covered the remaining n-k keypoints. If k=1, then there certainly is no blue key interval as there is only onr blue keypoint. When $k > 1$, Blue can define at most $k-1$ blue key intervals with its k keypoints(since Red has at least one keypoint). Thus at the end of phase two there is no key blue interval. 
+\\
+
+Now we notice that at the end of phase two all the red intervals are actually key intervals. This is because Red only uses his points to break blue intervals in phase two and thus creates no new intervals. Now before Red's last move the number of blue intervals is $ \geq 1$. (due to lemma 1)
+\\
+
+If the number of blue intervals is greater than one, then Red breaks the largest key interval. Thus the number of blue intervals is equal to the number of red intervals and all the red intervals are longer than the blue intervals. Thus Red wins.
+\\
+
+Now if the number of blue intervals is equal to one before Red's last move the strategy requires that there exists a bichromatic key interval and that the unique blue interval has length $< 1/n$(this is obvious because any interval has length less than this). The fact that there exists a bichromatic interval can be proved by noticing that before the last moves a total of $2n-1$ points have been placed and there are n keypoints. Since the blue interval has length $<1/n$, at least one of its endpoints is inside the arc. That leaves only $n-2$ points to have been played inside the $n-1$ remaining arcs. Thus at least one arc remains unoccupied, thus forming a key interval. Therefore this key interval is actually bichromatic. Now Red's last move is so defined that he has at least one interval greater in length than the blue interval. Since all the other intervals are bichromatic, Red wins.
+\\
+
+We have hence proved that the keypoint strategy is a well defined winning strategy for Red. Note that knowing the Red's strategy can easily be used by Blue to create a strategy such that Blue loses by an arbitarily small margin. 
+\\
+
+\subsubsection{Voronoi Games in two dimensions}\\
+
+\indent \indent The most natural Voronoi Game is played in a two-dimensional arena $\emph{U}$ using the Euclidean metric. Though it has been studied on simple regions like 2-dimensional rectangles and geometric arguments has been combined with game theory to find the winning strategy. Cheong et al. showed that the 2-dimensional scenario differs significantly from the 1-dimensional case. They showed that for sufficiently large number of sites $\emph{n} > n_0 $, the second player (Red) has a winning strategy that guarantees at least a fixed fraction of $1/2 + \epsilon $ of the total area.
+Fekete et. al showed  that Blue has a winning strategy for $n \geq 3$ and $\rho > \sqrt{2}/n$ and for n = 2 and $\rho > \sqrt{3}/2$.
+Red wins in all remaining cases. i.e. $n \geq 3$ and $\rho \leq \sqrt{2}/n$ and for n = 2 and $\rho \leq \sqrt{3}/2$ and for n = 1.
+They also proved that for a polygon with holes, it is NP-hard to maximize the area Blue can win against a given set of points by Red.\\
+
+\subsubsection{Voronoi Games in Graphs}\\
+
+\intend We consider the discrete version of the Voronoi game which plays on a given graph instead on a continuous space. Formally, the discrete Voronoi game plays on a given undirected graph G(V;E) with $n =\mid V\mid$ and k players. Every player has to choose a vertex (facility) from V, and every vertex (customer) is assigned to the closest facilities. If there are more than one closest facility then the vertex is assigned in equal fraction to these closest facilities. One may think that each vertex consists of a group of clients in which one half go to a facility and the other half go to another facility if there are two closest facilities to this group. A player's payoff (utility) is the number of vertices assigned to his facility. The social cost is the total distance that customers go to their closest facilities, i.e. it is defined as the sum of the distances to the closest facility over all vertices.\cite{Teramoto06voronoigame}\\
+
+The Voronoi game on graphs consists of:
+\begin{itemize}
+\item A graph G(V, E) and k players. We assume $k < n$ for $n = \mid V \mid$, otherwise the game has a trivial structure. The graph induces a distance between vertices $d : V \times V \to N \cup \{\infty \}$, which is defined as the minimal number of edges of any connecting path, or infinite if the vertices are disconnected.
+\item The strategy set of each player is V . A strategy profile of k players is a vector $f = (f_1 , . . . , f_k )$ associating each player to a vertex.
+\item For every vertex $v \in V$ - called customer - the distance to the closest facility is denoted as $d(v, f ) := min_{f_i} d(v, f_i )$. Customers are assigned in equal fractions to the closest facilities as
+follows. The strategy profile f defines the generalized partition $\{F_1 , ... , F_k \}$, where for every
+player $1 \leq i \leq k$ and every vertex $v \in V$ ,\\
+\begin{center}
+ F_{i,v} = \left\{ \begin{array}{ll} $1/\mid arg min_{j} d(v, f_j )\mid $ & \mbox{if }  $d(v, f_i ) = d(v, f ) $
+\\0 & \mbox{otherwise}  
+\end{array}\right.
+
+\end{center}
+
+We call $ F_i$ the Voronoi cell of player i. The radius of the Voronoi cell of player i is defined as $max_v d(v, f_i )$ where the maximum is taken over all vertices v such that $F_{i,v} > 0$.
+\item The payoff (utility) of player i is the (fractional) amount of customers assigned to it, that is
+$p_i := \sum_{v \in V} F_{i,v}$ 
+\item The social cost of strategy profile f is $cost(f ) :=
+\sum_{v \in V}
+d(v, f ).$
+\end{itemize}
+\\\\\\
+Now we will look into the Nash Equilibrium of this game.\\\\
+{ \bf Nash Equilibrium}
+\\
+
+\indent \indent A Nash equilibrium, is a set of strategies, one for each player, such that no player has incentive to unilaterally change her action, while having full knowledge of the other players strategies. Players are in equilibrium if a change in strategies by any one of them would lead that player to earn less than if she remained with her current strategy. For games in which players randomize (mixed strategies), the expected or average payoff must be at least as large as that obtainable by any other strategy.\cite{Nisan:2007:AGT:1296179}\\
+
+More formally, A strategy vector $s \in S$ is said to be a pure strategy Nash equlibrium if for all players i and each alternate strategy $s_i \in S_i$, we have that\\ \hspace*{20mm} $u_i(s_i,s_{-i}) \geq u_i(s_{i}^{'},s_{-i})$.\\\\ \indent Here $s_{-i}$ represents the strategy vector except $s_i$. In other words, no player i can change his chosen strategy from si to si and thereby improve his payoff, assuming that all other players stick to the strategies they have chosen in s. This is called a pure strategy equilibria since each player deterministically plays his chosen strategy.\\
+
+When players select strategies at random, we need to understand how they evaluate the random outcome. Thus the aim of the players is to actually maximize the expected payoff.To incorporate randomization into the choices the players actually select a probability distribution over his set of possible strategies. Such a choice is called a mixed strategy. Thus pure strategy is just a special case of mixed strategy with the probability distribution being 0 for all the strategies not taken and 1 for the particular chosen strategy.\\
+
+{ \bf Theorem (Nash 1951)}  : Any game with a finite set of players and a finite set of strategies has a Nash equilibrium of mixed strategies.
+\\
+
+Nash proved the above theorem by reducing the strategy space into a corresponding closed, continuous function. Then he proved that any Nash equilibrium is actually a fixed point corresponding to the function. Then used Brouwer's fixed point theorem to show that such a fixed point always exists.Papadimitrou proved that even though a mixed strategy Nash equilibrium actually exists, finding it is a PPADC problem, i.e. it is highly improbable that a polynomial time algorithm can find a mixed strategy Nash equlibrium for any finite game. Note that this problem is essentially different from other NP hard problems because, even though we are sure that an equilibrium exists, we cannot actually find it 'fast'.\\
+
+Note that even though a mixed strategy Nash equilibrium always exists, the same is not true for a pure strategy Nash equilibrium. Pure strategy Nash equlibrium may(or may not) exist. In the next section we prove that deciding a pure strategy Nash equilibrium for Voronoi games on graphs is NP-hard.
+\\
+
+\newpage
+
+{\bf Nash equilibrium in voronoi games on graphs}
+\\
+
+{ \bf Lemma:} In Nash Equilibrium the payoff $p_i$ of every player i is bounded by $ n/2k < p_i < 2n/k$\\
+
+{\bf Proof:} We first notice that the ratio between the largest and the smallest payoffs among all the players can be at most 2. This is because if one player moves to the location of another player then both the players equally share the corresponding payoff. Thus if the ratio between the payoffs of any two players is greater than 2, then the player with the smaller payoff will profit by moving to the position of the player with the larger payoff, and thus the system is not in Nash Equilibrium. Now the average payoff of the players is always $n/k$, because total payoff is always n and there are k players. Thus there exists a player j such that $p_j \leq n/k$. Hence minimum possible payoff is greater than $n/2k$. Similarly there is a player $p_k$ with payoff greater than $n/k$ and hence the maximum possible payoff is $2n/k$.\\
+
+{\bf Lemma:} For every generalized Voronoi game $<G(V,E),U,w,k>$ there is an associated Voronoi game $<G_{1}(V_{1},E_{1}),k>$ with $V \subset V_{1}$ , which has the same set of Nash equilibiria and which is such that $|V_{1}|$ is polynomial in $\sum_{v \epsilon V} w(v)$.\\
+
+{\bf Proof: } We present an iterative proof for the same. Start with $V_{1} = V$ \\\\
+First , for every vertex $u \epsilon V$ such that $w(u) > 1$. Let $H_{u}$ be a set of $w(u)-1$ new vertices. Now set $V_{1} = V_{1} \cup H_{u}$ and connect $u$ with every vertex  from $H_{u}$.\\\\
+Second , let $H$ be a set of $k(a+1)$ vertices where $a = |V_{1}| = \sum_{v \epsilon V} w(v).$ Now let $V_{1} = V_{1} \cup H$ and connect every vertex of U with every vertex of H.\\
+
+Now in $G_{1}(V_{1},E_{1})$  every player's payoff can be decomposed into the part obtained from $V_{1}/H$ and the part obtained from $H$.\\
+
+{\bf Claim:} In a Nash equilibirium,every player chooses a vertex from $U$. \\\\
+{\bf Proof:} If there is at least one player located in $U$ , then the gain from $H$ for any other player is 0 if located in $V_{1}\(U \cup H)$,is 1 if located in $H$ and is at least $a+1$ if located in $U$. Since the total payoff from $V_{1}/H$ over all players is $a$ , this forces all players to be located in $U$.  \\
+
+Clearly , by construction , for any strategy profile $f \epsilon U^{k}$ , the payoffs are the same for the generalized Voronoi game in $G$ as for the standard Voronoi game in $G_{1}$ . Hence , the set of Nash equilibiria in both games are equivalent and we are done.\\
+  
+{\bf Theorem:} Given a graph $G(V,E)$ and a set of $k$ players , deciding the existence of Nash equilibirium for $k$ players on $G$ is $NP$-complete for arbitrary $k$ , and constant for polynomial $k$.\\
+
+{\bf Proof:} Best responses can be computed in polynomial time , hence the problem is clearly in NP. Therefore , it can be verified efficiently if a given profile is a Nash Equilibirium. For $n = |V|$ , There are $n^{k}$ different strategy profiles , hence the problem is polynomial when $k$ is constant.\\
+
+It remains to prove that the problem is NP-hard. By the previous lemma we have proved that the generalized voronoi game reduces to the original Voronoi game.\\
+
+Consider the $3-PARTITION$ problem where we are given integers $a_{1},a_{2}.....a_{3m}$ and $B$ such that $B/4 < a_{i} < B/2$ for every $1 \leq i \leq 3m , \sum_{i=1}^{3m} = mB$ and have to partition them into disjoint sets $P_{1},P_{2}.....P_{m} \subset \lbrace1,2,3...3m \rbrace$ such that for every $1 \leq j \leq m$ we have $\sum_{i \epsilon P_{j}} a_{i} = B$. Here we attempt to reduce this problem to the generalised Voronoi game.\\
+
+We construct a weighted graph $G(V,E)$ with the weight function $w:V \rightarrow \mathbb{N}$ and a set $U \subset V$ such that for $k=m+1$ players $(m \geq 2)$ there is a Nash equilibirium to the generalized Voronoi game iff there is a solution to the $3-partition$ instance.
+We define the constants $c=\left( _{3}^{3m}\right) +1$ and $d= \lfloor \frac{Bc-c+c/m}{5} \rfloor +1$. The graph $G$ consists of 3 parts. In the first part , $V_{1}$ ,there is a vertex $v_{i}$ of weight $a_{i}c$. There is also an additional vertex of weight 1. In the second part , $V_{2}$ there is for every triplet $(i,j,k)$ , a vertex $u_{ijk}$ of unit weight.Every vertex $u_{ijk}$ is connected to $v_{0},v_{i},v_{j},v_{k}$.\\
+
+First , we show that if there is a solution to the $3-PARTITION$ instance then there is a Nash Equilibirium for this graph.Simply if $P_{q} = \lbrace i,j,k \rbrace$ then player $q$ is assigned to the vertex $u_{ijk}$.   Player $m + 1$ is assigned to $u_2$ . Now player $(m + 1)’s$ payoff is 9d, and the payoff of each other player q is $Bc + c/m$. To show that this is a Nash equilibrium we need to show that no player can increase his payoff. There are different cases. If player $m + 1$ moves to a vertex $u_{ijk}$ , his payoff will be at most $\frac{3}{4} Bc + c/(m + 1) < 9d$, no matter if that vertex was already chosen by another player or not. If player $1 \leq q\leq m$ moves from vertex $u_{ijk}$ to a vertex $u_i$ then his gain can be at most $5d < Bc + c/m$. But what can be his gain, if he moves to another vertex $u_{i'j'k'}$ ? In case where $i = i' , j = j' , k = k' , a_ic + a_jc$ is smaller than $\frac{3}{4} Bc$ because $a_i + a_j + a_k = B$ and $a_k > B/4$. Since $a_{k'} < B/2$, and player q gains only half of it, his payoff is at most $a_i c + a_j c + a_{k'} c/2 + c/m < Bc + c/m$ so he again cannot improve his payoff. The other cases are similar.\\
+
+Now we show that if there is a Nash equilibrium, then it corresponds to a solution of the 3-Partition instance. So let there be a Nash equilibrium. First we claim that there is exactly one player in $V_3$ . Clearly if there are 2 players, this contradicts equilibrium by Lemma 3. If there are 3 players or more, then by a counting argument there are vertices $v_i , v_j , v_k$ which are at distance more than one from any player. One of the players located at $V_3$ gains at most 3d and if he moves to $u_{ijk}$ , his payoff would be at least $\frac{3}{4} Bc + c/m > 3d$. Now if there is no player in $V_3$ , then any player moving to $u_2$ will gain $9d > \frac{3}{2} Bc + c/m$ which is an upper bound for the payoff of players located in $V_2$ . So we know that there is a single player in $V_3$ and the m players in $V_2$ must form a partition, since otherwise there is a vertex $v_i \in V_1$ at distance at least 2 to any player. So, by the previous argument, there would be a player in $V_2$ who can increase his payoff by moving to the other vertex in $V_2$ as well. (He moves in such a way that his new facility is at distance 1 to $v_i$ .) Moreover, in this partition, each player gains exactly $Bc + c/m$ because if one gains less, given all weights in $V_1$ are multiple of c, he gains at most $Bc - c + c/m$ and he can always augment his payoff by moving to $V_3 (5d > Bc - c + c/m)$ \cite{Durr07nashequilibria} 
+\\
+\subsubsection{Social Cost Discrepancy}\\
+
+\indent \indent  When consider the inefficiency of equilibria in a game, the most popular measures are the price of anarchy and the price of stability. The price of anarchy is defined as the ratio between the worst objective value of an equilibrium of the game and that of an optimal solution. The price of stability is similarly defined as the ratio between the best value of an equilibrium and the optimal solution. \\
+
+The social discrepancy is defined as the ratio between the worst and the best pure equilibrium. The idea is that a small social cost discrepancy guarantees that the social costs of Nash equilibria do not differ too much, and measures a degree of choice in the game. Additionally, in some settings it may be unfair to compare the cost of a Nash equilibrium with the optimal solution, which may not be attained by selfish players or may not be an outcome of the game.\\
+
+In this game the Social Cost Discrepancy is $\Omega (\sqrt{n/k})$ and $O(\sqrt{kn})$ , where n is the number of vertices and k is the number of players.\\
+\subsubsection{Voronoi-based Overlay Network}
+\indent \indent Voronoi diagrams have recently been shown to be applicable to many P2P application to increase scalability and affordability to a great extent. Networked virtual environments are quire famous these days in the form of massively multiplayer online games (MMOG). To implement these environments, existing client-server based architecture have inherent limitations. To support orders of magnitude more users than existing size, not only server design and maintenance complexity will increase, building such NVEs will also become prohibitively expensive to medium and small developers. A new class of P2P network called Voronoi-based Overlay Network has been proposed to realize highly scalable NVE. \\
+
+\cite{Hu:2004:SPN:1016540.1016552} The general NVE communication problem is defined as: each participant assumes a representation (called avatar) and uses a computer terminal (PC or workstation) to access the NVE. For our purpose, an avatar is a node on the network and is represented as a point on a 2D coordinate plane. The visibility of a node is called its Area of Interest (AOI), and is represented as a circle centered on the node. Although many nodes can exist in the whole system, a single node is only aware of its AOI neighbors at any given time. As each participant moves or makes an action, a message is generated and delivered to all other nodes that may see the action. The basic problem then is: how can each node receive the proper/relevant messages from other nodes within its AOI? And the scalability problem would be how can these nodes communicate on a massive scale?
+
+The point-to-point , client-server and server-cluster approches to address this problem are insufficient. As the number of nodes grow the number of messages and actions to be relayed by the server and notified to other nodes grow exponentially. P2P offers two attractive promises: as each participating machine contributes its own resource, system size can be highly scalable as total resource grows with system size; it is also a form of very affordable computing resource as the users themselves donate the necessary resources without requiring provisioning.\\
+
+For NVE, each node is generally interested only in the messages generated by its AOI neighbors. Due to this locality of interest,connecting only to AOI neighbors is sufficient for the system to function properly. However, because neighbor relationships may change as nodes move around, finding the proper AOI neighbors becomes the central problem (i.e. a neighbor discovery problem) for P2P-based NVE.\\
+
+Voronoi diagram can be used to solve the neighbor discovery problem. We require each node to maintain direct connections with all its AOI neighbors. Given the coordinates of its neighbors, a node may then construct a Voronoi diagram containing all of its AOI neighbors. Discovery of new neighbors is done with the help from boundary neighbors (defined as AOI neighbors whose Voronoi regions overlap with the AOI boundary) as they may know what other nodes exist beyond the AOI. As each node moves, it sends updates to all of its AOI neighbors. If a boundary neighbor receives the update, it would check for potential new neighbors on behave of the moving node and send out notifications if new AOI neighbors are found. To ensure that the P2P topology remains fully-connected even when a node has no AOI neighbors, we also require each node to minimally maintain its enclosing neighbors. This scheme is called Voronoi-based Overlay Network. Compared with existing architectures or other P2P-based NVE designs, VON may achieve better scalability (as each node only maintains a limited number of nodes, resource consumption is thus bounded), responsiveness (because latency is minimized by the direct connections between nodes), and message-efficiency.\cite{DBLP:conf/waim/ZhengH05} \\
+
+Potential applications of Voronoi based overlay networks include Massively Multiplayer Online Games, Large- scale military simulations and Scientific simulations.\\
+
+{ \bf P2P botnets in the New Voronoi Overlay}\\
+
+A botnet is a collection of infected computers, called "bots", that will do the bidding of the botmaster, which is the person that controls the botnet. Botnets are dangerous because they are an effective tool in virtually every cyber criminal activity imaginable - identity theft, distributed denial od service attacks(DDOS), click fraud, spam, etc. The original model for botnets followed the Command & Control model with a single server and several bot clients connecting to it. This type of botnet is fairly easily mitigated since it offers a single point of failure for the entire botnet – the server. Botnets therefore have been moving to a P2P structure to become more resilient to defenses and further evade the security community. P2P Botnets are fairly new and most of the ones seen in the wild do not fully take advantage of the strengths of a true P2P network . It is important that the security community anticipate the direction that botnets are heading in so that the world may be better prepared when the next generation of botnets is seen in the wild\cite{peertopeerbotnets}.\\
+
+\newpage
+
+\subsubsection{DDOS: Distributed Denial-Of-Service attack }\\*
+In a denial-of-service (DoS) attack, an attacker attempts to prevent legitimate users from accessing information or services. By targeting your computer and its network connection, or the computers and network of the sites you are trying to use, an attacker may be able to prevent you from accessing email, websites, online accounts (banking, etc.), or other services that rely on the affected computer.\cite{Peng03protectionfrom}
+DoS attack could be of following\\
+\begin{itemize}
+
+\item ICMP flood
+\item SYN flood
+\item Teardrop attacks
+\item Low-rate Denial-of-Service attacks
+\item Peer-to-peer attacks
+\item Asymmetry of resource utilization in starvation attacks
+\item Permanent denial-of-service attacks
+\item Application-level floods
+\item Nuke
+\item R-U-Dead-Yet?
+\item Distributed attack
+\item Reflected attack
+\item Degradation-of-service attacks
+\item Unintentional denial of service
+\item Denial-of-Service Level II
+\end{itemize}
+
+
+\indent The most common and obvious type of DoS attack occurs when an attacker "floods" a network with information. As the server could process only a certain number of requests at a perticular time, it is impossible for legitimate users to get access to the server's resources during such time, if the whole bandwidth of the server is taken up by meaningless/fake information/data.\\
+
+\indent This could be easily done on the lan by simply pinging the target computer with large data, say 20 mb with continuous packets.\\
+
+\indent Most of the DOS attack fails because generally the target server capacity/bandwidth will be far greater(servers expecting high traffic) than the attacker's computer, hence the attacker could take up only a fraction of the total bandwidth.\\
+
+\indent Other attack which is more complicated and also very effective in int goal is distributed denial-of-service (DDoS) attack. 
+Behind these new attacks is a large pool of compromised hosts sitting in homes, schools, businesses, and governments around the world. These systems are infected with a bot that communicates with a bot controller and other bots to form what is commonly referred to as a zombie army or botnet. Zombie army could be created by compromizing the hosts, which include personal access or even by worms viruses or trojen horse. The attacker may use your computer to attack another computer by taking advantage of security vulnerabilities or weaknesses, He or she could then force your computer to send huge amounts of data to a website or send spam to particular email addresses. The attack is "distributed" because the attacker is using multiple computers, including yours, to launch the denial-of-service attack. the attack could be initiated by various methods. The attacker could control some bots, that could inturn control other bots . bots can communicate through direct connections, the well known IRC (Internet Relay Channels) \cite{Cooke05thezombie} or even covert channels. \\
+
+Some particularly tricky botnets use uncorrupted computers as part of the attack. Here's how it works: the cracker sends the command to initiate the attack to his zombie army. Each computer within the army sends an electronic connection request to an innocent computer called a reflector. When the reflector receives the request, it looks like it originates not from the zombies, but from the ultimate victim of the attack. The reflectors send information to the victim system, and eventually the system's performance suffers or it shuts down completely as it is inundated with multiple unsolicited responses from several computers at once. \\
+
+%\subsection{Motivation}
+%\newpage
+%\section{Work Done}
+\newpage
+\section{Future Works}
+\\
+First of all we would like to analyze the Voronoi in a different kind of arena and under a different set of rules. The aim would be to use similar techniques used in the one dimensional Voronoi game and actually use it in two dimensions. To do this we define an arena as a circle. The players(Red and Blue) place their respective points on the circumference of the circle. But the distances between these points are essentially calculated in the 'two dimensional' sense, i.e, the Euclidean distance. Further we would extend it to different other simple arenas like square and regular polygons. Also most of the Vorornoi games analyzed for two dimensions are one-round. We know that as this is a finite combinatorial game a winning strategy surely exists for one of the players, but it is still an open problem. We would also like to look into this and endeavor to comprehend the inherent reason of this difficulty.  \\
+
+Another line of work will concentrate on attempting to close the gap between the upper and the lower bounds for the social cost discrepancy in Voronoi Games in Graphs. The price of anarchy(the ratio between optimum and worst case equilibrium) for these games are yet to be studied. We would like to understand and analyze these. \\
+
+The Voronoi games is just game theoretic way to look into competitve facility location problem. Another aspect of our work can be to analyze network service provider games as introduced by Devanur et. al \cite{Devanur05priceof} , and look at its application in selfish routing. \\
+
+We are planning to use Aubrey simulator, which is a Voronoi overlay network(VON) simulator to introduce bots in a network and mitigate the attack using AID (Anomaly Intrusion Detection). \\
+
+Voronoi games can be used to find out the relevant defense nodes for a botnet attack in VON's. This is possible basically because VON's can be treated as a huge graph, with message passing possible only between the connected nodes. So we can argue that the relevant nodes in this system(the defense nodes) is basically the Nash equilibrium strategy for a set of k-players. The optimum solution can also be considered as a possible solution. Thus the social cost discrepancy would actually give a lot of insight into this. We would also like to extend our work in this direction. \\
+\newpage
+\section{Conclusion}
+
+\indent \indent In this work we analyzed the competitive facility location problem using game theoretic approches. We used Voronoi games ,which is a game defined using voronoi diagrams, for this. First we looked into some results of two player voronoi games in one dimensional arenas. We proved that in this case the second player always has a winning strategy. But using similar arguments it can be proved that the first player can make the winning margin arbitarily small. \\
+
+Next we enumerated some of the most recent results in two dimensional one round Voronoi games for two players. Two dimensional n rounds Voronoi games are yet to be analyzed even for very simple arena. We would like to look into this problem in the future. Then, we studied the k players  Voronoi games in graphs and we proved that finding a Nash equilibrium in such a game is actually NP-Hard. We also introduce a new abstract quantity known as the social cost discrepancy and we bind its value for the games on graphs.\\
+
+In the third phase we introduced a recently recent innovation known as Vornoi overlay networks, which solves the basic problems of scalability and affordablity in MMOG's. We also propose that finding relevant defense nodes in such a network is actually equivalent in some sense to finding the strategies in k-player Voronoi games in graphs. We would analyze this in more details in future.     
+\newpage
+
+\addcontentsline{toc}{section}{References}
+
+\bibliographystyle{plain}
+\bibliography{mybib}
+
+
+\end{document}

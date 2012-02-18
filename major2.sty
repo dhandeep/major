@@ -1,0 +1,154 @@
+\usepackage{geometry}
+%\typeout{
+%Department of Computer Engineering, NIT Calicut
+%mprojreport report template
+%}
+
+\geometry{verbose,a4paper,tmargin=30mm,bmargin=15mm,lmargin=20mm,rmargin=20mm}
+\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+
+\newcommand{\topic}{}
+\newcommand{\mprojtopic}[1]{\renewcommand{\topic}{{#1}}}
+\newcommand{\nameone}{}
+\newcommand{\studentnameone}[1]{\renewcommand{\nameone}{{#1}\\}}
+\newcommand{\noone}{}
+\newcommand{\rollnoone}[1]{\renewcommand{\noone}{{#1}\\}}
+%
+\newcommand{\nametwo}{}
+\newcommand{\studentnametwo}[1]{\renewcommand{\nametwo}{{#1}\\}}
+\newcommand{\notwo}{}
+\newcommand{\rollnotwo}[1]{\renewcommand{\notwo}{{#1}\\}}
+\newcommand{\namethree}{}
+\newcommand{\studentnamethree}[1]{\renewcommand{\namethree}{{#1}\\}}
+\newcommand{\nothree}{}
+\newcommand{\rollnothree}[1]{\renewcommand{\nothree}{{#1}\\}}
+\newcommand{\namefour}{}
+\newcommand{\studentnamefour}[1]{\renewcommand{\namefour}{{#1}\\}}
+\newcommand{\nofour}{}
+\newcommand{\rollnofour}[1]{\renewcommand{\nofour}{{#1}\\}}
+
+%
+
+
+
+\newcommand{\gname}{}
+\newcommand{\guidesname}[1]{\renewcommand{\gname}{{#1}}}
+\newcommand{\hod}{}
+\newcommand{\hodname}[1]{\renewcommand{\hod}{{#1}\\}}
+
+\renewcommand{\bottomfraction}{0.8}
+
+\newcommand{\makefrontpage}
+{
+%
+	\pagestyle{headings}%
+	\thispagestyle{empty}%
+	\begin{center}%
+	    \huge\bf{\topic}\\%
+             \vspace{1.5cm}% 
+ 		\large{CS498P Project}\\%
+		\vspace{.5cm}% 
+%	       \small{on}\\%
+		\small\it{Submitted in partial fulfilment of}\\%
+		\small\it{the requirements for the award of the degree of}\\%
+		\vspace{0.5cm}%
+		\large\bf\it{Bachelor of Technology}\\%
+		\small\it{in}\\
+		\large\it{Computer Science and Engineering}\\%
+		\vspace{.5cm}%
+		\Large\it {Submitted by}\\%
+		\vspace{1cm}%
+		 \normalfont \bf%
+		\small{\nameone}%
+                \small{\noone}%
+% comment out from here if there is only one student
+		\vspace{0.5cm}%
+		\normalfont \bf%
+		{\nametwo}%
+               \small{\notwo}%
+		\vspace{0.5cm}%
+		\normalfont \bf%
+		{\namethree}%
+                \small{\nothree}%
+                \vspace{0.5cm}%
+		\normalfont \bf%
+		{\namefour}%
+               \small{\nofour}%
+		\vspace{1cm}
+		\normalfont{Project Guide:}
+		\normalfont\bf{\gname}\\
+
+		%\small{Department of Computer Science \& Engineering}\\%
+		%\small\it{Project Guide}\\
+		%\small\it{Faculty\\Dept.of Computer Engineering}}
+		
+% comment out till here if there is only one student
+		\begin{figure}[b]
+		\begin{center}
+		\includegraphics[scale=1.0]{nitclogo.eps}\\%
+			\vspace{1cm}%
+
+			\large\bf{Department of Computer Science \& Engineering}\\%
+			\Large\bf{National Institute of Technology Calicut}\\%
+			\small\bf{Kerala - 673601}\\%
+                       \small\bf{Monsoon 2011}\hspace*{\fill}\\% 
+		\end{center}
+		\end{figure}
+	\end{center}%
+\newpage
+}
+
+\newcommand{\makecertificate}{%
+\pagestyle{headings}%
+\thispagestyle{empty}%
+\begin{center}%
+	\Large\bf{National Institute of Technology, Calicut}\\%
+	\large\bf{Department of Computer Engineering}\\%
+	\vspace{1cm}
+	\large\it{Certified that this Major Project Report entitled}\\%
+	\vspace{0.7cm}
+	\huge\bf{\topic}\\%
+	\vspace{1cm}
+	\large\it{is a bonafide report of the Major Project done by}\\%
+	\vspace{1cm}
+	 \normalfont \bf%
+	\small{\nameone}
+        \small{\noone}
+%	if only one student comment the lines below
+	\vspace{0.5cm}
+	{\nametwo}
+      \small{\notwo}
+	\vspace{0.5cm}
+	\normalfont\bf%
+	{\namethree}
+        \small{\nothree}
+        \vspace{0.5cm}
+	{\namefour}
+      \small{\nofour}
+	
+%	if only one student comment the lines above
+	\vfill
+
+	\begin{center}%
+		\large\it{in partial fulfilment of}\\%
+		\large\it{the requirements for the award of the degree of}\\%
+		\Large\bf\it{ Bachelor of Technology }\\%
+		\small{in}\\%
+		\large\bf\it{Computer Science and Engineering}\\%
+                \vspace{1cm}
+		\vfill
+		\begin{center}
+			\rule[2cm]{17cm}{0.1pt}
+		\end{center}
+		\parbox{7.5cm}{
+		\normalfont\bf{\gname}\\
+		\small\it{Project Guide}\\
+		\small\it{Faculty\\Dept.of Computer Engineering}}
+		\parbox{7.5cm}{
+		\normalfont\bf{\hod}\\
+	        \small\it{Professor and\\Head\\Dept.of Computer Engineering}}
+	\end{center}%
+\end{center}%
+\newpage
+}

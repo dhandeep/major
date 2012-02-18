@@ -1,0 +1,70 @@
+\begin{thebibliography}{10}
+
+\bibitem{Aronov98facilitylocation}
+Boris Aronov, Marc van Kreveld, René van Oostrum, and Kasturi Varadarajan.
+\newblock Facility location on terrains.
+\newblock In {\em PROC. 9TH INTERNATIONAL SYMPOSIUM OF ALGORITHMS AND
+  COMPUTATION, VOLUME 1533 OF LECTURE NOTES COMPUT. SCI}. Springer-Verlag,
+  1998.
+
+\bibitem{Cooke05thezombie}
+Evan Cooke, Farnam Jahanian, and Danny Mcpherson.
+\newblock The zombie roundup: Understanding, detecting, and disrupting botnets.
+\newblock pages 39--44, 2005.
+
+\bibitem{Devanur05priceof}
+Nikhil Devanur, Naveen Garg, Rohit Khandekar, Vinayaka Pandit, Amin Saberi, and
+  Vijay Vazirani.
+\newblock Price of anarchy, locality gap, and a network service provider game.
+\newblock In {\em IN PROC. OF WINE 2005, LNCS 3828}, pages 1046--1055, 2005.
+
+\bibitem{Durr07nashequilibria}
+Christoph D\"urr and Nguyen~Kim Thang.
+\newblock Nash equilibria in voronoi games on graphs.
+\newblock In {\em In Proceedings of the 15th European Symposium on Algorithms
+  (ESA}, pages 17--28, 2007.
+
+\bibitem{Hu:2004:SPN:1016540.1016552}
+Shun-Yun Hu and Guan-Ming Liao.
+\newblock Scalable peer-to-peer networked virtual environment.
+\newblock In {\em Proceedings of 3rd ACM SIGCOMM workshop on Network and system
+  support for games}, NetGames '04, pages 129--133, New York, NY, USA, 2004.
+  ACM.
+
+\bibitem{Ahn03competitivefacility}
+Hee kap Ahn, Siu-Wing Cheng, Otfried Cheong, Mordecai Golin, and Rene~Van
+  Oostrum.
+\newblock Competitive facility location: The voronoi game, 2003.
+
+\bibitem{Ahn01competitivefacility}
+Hee kap Ahn, Siu-Wing Cheng, Otfried Cheong, Mordecai Golin, and René van
+  Costrum.
+\newblock Competitive facility location along a highway.
+\newblock In {\em In 7th Annual International Computing and Combinatorics
+  Conference, volume 2108 of LNCS}, pages 237--246, 2001.
+
+\bibitem{peertopeerbotnets}
+Joseph Montgomery.
+\newblock Peer-to-peer botnets taking over the new voronoi- overlay, 2010.
+
+\bibitem{Nisan:2007:AGT:1296179}
+Noam Nisan, Tim Roughgarden, Eva Tardos, and Vijay~V. Vazirani.
+\newblock {\em Algorithmic Game Theory}.
+\newblock Cambridge University Press, New York, NY, USA, 2007.
+
+\bibitem{Peng03protectionfrom}
+Tao Peng, Christopher Leckie, and Kotagiri Ramamohanarao.
+\newblock Protection from distributed denial of service attack using
+  history-based ip filtering.
+\newblock pages 482--486, 2003.
+
+\bibitem{Teramoto06voronoigame}
+Sachio Teramoto, Erik Demaine, and Ryuhei Uehara.
+\newblock Voronoi game on graphs and its complexity, 2006.
+
+\bibitem{DBLP:conf/waim/ZhengH05}
+Jun Zheng and Ming-Zeng Hu.
+\newblock Intrusion detection of dos/ddos and probing attacks for web services.
+\newblock In {\em WAIM}, pages 333--344, 2005.
+
+\end{thebibliography}

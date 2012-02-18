@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: major.aux
+The style file: plain.bst
+Database file #1: mybib.bib
+A bad cross reference---entry "DBLP:conf/waim/ZhengH05"
+refers to entry "DBLP:conf/waim/2005", which doesn't exist
+Warning--I didn't find a database entry for "DBLP:conf/waim/2005"
+Warning--empty booktitle in Cooke05thezombie
+Warning--empty booktitle in Peng03protectionfrom
+You've used 12 entries,
+            2118 wiz_defined-function locations,
+            572 strings with 6373 characters,
+and the built_in function-call counts, 4865 in all, are:
+= -- 468
+> -- 235
+< -- 7
++ -- 93
+- -- 80
+* -- 297
+:= -- 740
+add.period$ -- 35
+call.type$ -- 12
+change.case$ -- 75
+chr.to.int$ -- 0
+cite$ -- 14
+duplicate$ -- 204
+empty$ -- 395
+format.name$ -- 80
+if$ -- 1078
+int.to.chr$ -- 0
+int.to.str$ -- 12
+missing$ -- 10
+newline$ -- 60
+num.names$ -- 24
+pop$ -- 117
+preamble$ -- 1
+purify$ -- 64
+quote$ -- 0
+skip$ -- 174
+stack$ -- 0
+substring$ -- 273
+swap$ -- 78
+text.length$ -- 7
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 46
+warning$ -- 2
+while$ -- 44
+width$ -- 14
+write$ -- 126
+(There was 1 error message)

@@ -1,0 +1,13 @@
+\contentsline {section}{\numberline {1}Problem Definition}{4}
+\contentsline {section}{\numberline {2}Introduction}{5}
+\contentsline {subsection}{\numberline {2.1}Background and Recent Research }{5}
+\contentsline {subsubsection}{\numberline {2.1.1}Voronoi Diagrams and Voronoi Games}{5}
+\contentsline {subsubsection}{\numberline {2.1.2}Voronoi Games in one dimension}{6}
+\contentsline {subsubsection}{\numberline {2.1.3}Voronoi Games in two dimensions}{9}
+\contentsline {subsubsection}{\numberline {2.1.4}Voronoi Games in Graphs}{9}
+\contentsline {subsubsection}{\numberline {2.1.5}Social Cost Discrepancy}{14}
+\contentsline {subsubsection}{\numberline {2.1.6}Voronoi-based Overlay Network}{15}
+\contentsline {subsubsection}{\numberline {2.1.7}DDOS: Distributed Denial-Of-Service attack }{18}
+\contentsline {section}{\numberline {3}Future Works}{20}
+\contentsline {section}{\numberline {4}Conclusion}{21}
+\contentsline {section}{References}{22}
